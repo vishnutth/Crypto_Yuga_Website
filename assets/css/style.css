@@ -19,32 +19,51 @@
   /**
    * colors
    */
+   :root {
+    --cadet-blue-crayola: hsl(227, 13%, 73%);
+    --maximum-yellow-red: hsl(41, 95%, 61%);
+    --medium-sea-green: hsl(142, 43%, 54%);
+    --blue-crayola_10: hsla(222, 100%, 61%, 0.05);
+    --smocky-black_30: hsla(0, 0%, 6%, 0.3);
+    --eerie-black-1: hsl(240, 5%, 8%);
+    --eerie-black-2: hsl(228, 9%, 10%);
+    --raisin-black: hsl(225, 15%, 16%);
+    --blue-crayola: hsl(222, 100%, 61%);
+    --roman-silver: hsl(223, 10%, 52%);
+    --presian-red: hsl(0, 64%, 52%);
+    --gunmetal_50: hsla(230, 16%, 22%, 0.5);
+    --gainsboro: hsl(0, 0%, 85%);
+    --cultured: hsl(0, 0%, 93%);
+    --white_50: hsla(0, 0%, 100%, 0.5);
+    --white_30: hsla(0, 0%, 100%, 0.3);
+    --white_10: hsla(0, 0%, 100%, 0.1);
+    --black_10: hsla(0, 0%, 0%, 0.1);
+    --white: hsl(0, 0%, 100%);
+    --pale-pink: hsl(350, 30%, 90%);
+    --soft-lilac: hsl(270, 25%, 80%);
+    --lavender-blush: hsl(340, 30%, 95%);
+    --peach: hsl(25, 70%, 80%);
+    --dark-turquoise: hsl(190, 45%, 35%);
+    --coral: hsl(10, 70%, 60%);
+    --deep-sky-blue: hsl(195, 90%, 60%);
+    --salmon: hsl(7, 80%, 70%);
+    --indigo: hsl(240, 50%, 40%);
+    --light-green: hsl(120, 60%, 70%);
+  }
   
-  --cadet-blue-crayola: hsl(227, 13%, 73%);
-  --maximum-yellow-red: hsl(41, 95%, 61%);
-  --medium-sea-green: hsl(142, 43%, 54%);
-  --blue-crayola_10: hsla(222, 100%, 61%, 0.05);
-  --smocky-black_30: hsla(0, 0%, 6%, 0.3);
-  --eerie-black-1: hsl(240, 5%, 8%);
-  --eerie-black-2: hsl(228, 9%, 10%);
-  --raisin-black: hsl(225, 15%, 16%);
-  --blue-crayola: hsl(222, 100%, 61%);
-  --roman-silver: hsl(223, 10%, 52%);
-  --presian-red: hsl(0, 64%, 52%);
-  --gunmetal_50: hsla(230, 16%, 22%, 0.5);
-  --gainsboro: hsl(0, 0%, 85%);
-  --cultured: hsl(0, 0%, 93%);
-  --white_50: hsla(0, 0%, 100%, 0.5);
-  --white_30: hsla(0, 0%, 100%, 0.3);
-  --white_10: hsla(0, 0%, 100%, 0.1);
-  --black_10: hsla(0, 0%, 0%, 0.1);
-  --white: hsl(0, 0%, 100%);
-
   /**
-   * gradient color
-   */
+ * gradient color
+ */
 
-  --gradient: linear-gradient(90deg, var(--white_10) 0px 77%, var(--white_50) 92%, transparent);
+:root {
+  --gradient: linear-gradient(135deg, 
+    var(--white_10) 0%,
+    var(--soft-lilac) 25%,
+    var(--lavender-blush) 50%,
+    var(--peach) 75%,
+    var(--coral) 100%
+  );
+}
 
   /**
    * typography
@@ -290,14 +309,9 @@ body.active { overflow: hidden; }
   font-size: 24px;
 }
 
-
-
-
-
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
-
 
 :root {
   --eerie-black-1: #111;
@@ -309,46 +323,28 @@ body.active { overflow: hidden; }
   --fw-700: 700;
   --transition-1: 0.3s ease-in-out;
   --cubic-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --button-shadow: 0 0 5px cyan, 0 0 25px cyan;
+  --button-hover-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
 }
 
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--eerie-black-1);
-  padding-block: 15px;
-  z-index: 4;
-  color: var(--white);
-  transition: background-color var(--transition-1);
+.button {
+  box-shadow: var(--button-shadow);
+  transition: box-shadow var(--transition-1);
 }
 
-.header.active {
-  position: fixed;
-  top: -66px;
-  background-color: var(--white);
-  border-block-start: 1px solid var(--cultured);
-  box-shadow: var(--shadow-1);
-  animation: slideIn 0.25s var(--cubic-out) forwards;
+.button:hover {
+  box-shadow: var(--button-hover-shadow);
 }
 
-@keyframes slideIn {
-  0% {
-    transform: translateY(0);
-    background-color: var(--white);
-  }
-
-  100% {
-    transform: translateY(100%);
-    background-color: var(--eerie-black-2);
-  }
-}
+/* ... (rest of your existing styles) */
 
 .header > .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -368,12 +364,12 @@ body.active { overflow: hidden; }
 }
 
 .nav-toggle-btn .line:not(:last-child) {
-  margin-block-end: 4px;
+  margin-bottom: 4px;
 }
 
 .nav-toggle-btn {
   padding: 8px 5px;
-  margin-inline-start: auto;
+  margin-left: auto;
 }
 
 .nav-toggle-btn.active .line-1 {
@@ -408,7 +404,7 @@ body.active { overflow: hidden; }
 }
 
 .navbar-item:not(:last-child) {
-  border-block-end: 1px solid var(--white_30);
+  border-bottom: 1px solid var(--white_30);
 }
 
 .navbar-link {
@@ -416,6 +412,8 @@ body.active { overflow: hidden; }
   font-weight: var(--fw-700);
   padding: 12px 30px;
   transition: var(--transition-1);
+  display: block;
+  text-align: center;
 }
 
 .navbar-link:hover,
@@ -423,11 +421,6 @@ body.active { overflow: hidden; }
 .navbar-link.active {
   color: var(--blue-crayola);
 }
-
-
-
-
-
 
 /*-----------------------------------*\
   #HERO
@@ -437,7 +430,7 @@ body.active { overflow: hidden; }
 }
 
 :root {
-  --primary-color: #001529; /* Dark Blue */
+  --primary-color: #000203; /* Dark Blue */
   --secondary-color: #b3b1b1; /* Grey */
   --font-size-5: 1.25rem; /* Adjusted font size */
 }
@@ -521,9 +514,11 @@ body.active { overflow: hidden; }
   padding: 20px;
   border-radius: var(--radius-12);
   transition: var(--transition-1);
+  position: relative;
+  overflow: hidden;
 }
 
-.trend-card:is(:hover, .active) {
+.trend-card:hover {
   background-color: var(--gunmetal_50);
   box-shadow: var(--shadow-3);
 }
@@ -541,7 +536,7 @@ body.active { overflow: hidden; }
   transition: var(--transition-1);
 }
 
-.trend-card .card-title:is(:hover, :focus) { color: var(--blue-crayola); }
+.trend-card .card-title:hover { color: var(--blue-crayola); }
 
 .trend-card .card-title .span {
   color: var(--cadet-blue-crayola);
@@ -564,10 +559,20 @@ body.active { overflow: hidden; }
 
 .trend-card .current-price { font-size: var(--fs-7); }
 
+/* Enhance color grading and border animation */
+.trend-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, var(--blue-crayola), var(--white), var(--blue-crayola));
+  border-radius: var(--radius-12);
+  z-index: -1;
+  transition: transform 0.3s ease-in-out;
+}
 
-
-
-
+.trend-card:hover::before {
+  transform: scale(1.1);
+}
 
 /*-----------------------------------*\
   #MARKET
